@@ -37,30 +37,6 @@
         </main>
     </section>
 
-    <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
-        <div class="container">
-            <!-- <a class="navbar-brand" href="#">Dino</a> -->
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <!-- <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Dino</h5> -->
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div class="navbar-nav ms-auto">
-                        <a class="nav-link" href="#home">Home</a>
-                        <a class="nav-link" href="#video">Video</a>
-                        <a class="nav-link" href="#rsvp">RSVP</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
     <section id="home" class="home">
         <div class="container">
             <div class="row justify-content-center">
@@ -214,13 +190,56 @@
                 <div class="col-md-8 col-10 text-center">
                     <h2>Konfirmasi Kehadiran</h2>
                     <p>Isi form di bawah ini untuk melakukan konfirmasi kehadiran.</p>
-                    <a href="https://forms.gle/K6h7yZ54VACBTvnn9" target="_blank" class="btn btn-light btn-sm my-3">Form
-                        Kehadiran Natal</a>
+    
+                    <form id="rsvpForm" action="" method="post">
+                        <div class="mb-3">
+                            <label for="namaKK" class="form-label">Nama Kepala Keluarga</label>
+                            <input type="text" class="form-control" id="namaKK" name="namaKK" required>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="jumlahPKBPKPPKLU" class="form-label">Jumlah PKB/PKP/PKLU</label>
+                            <select class="form-select" id="jumlahPKBPKPPKLU" name="jumlahPKBPKPPKLU">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="jumlahPA" class="form-label">Jumlah PA</label>
+                            <select class="form-select" id="jumlahPA" name="jumlahPA">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="jumlahPTGP" class="form-label">Jumlah PT/GP</label>
+                            <select class="form-select" id="jumlahPTGP" name="jumlahPTGP">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+    
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
-
+    </section>    
+    
     <footer>
         <div class="container">
             <div class="row">
@@ -251,12 +270,51 @@
         </div>
       </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
+
+  <!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    // Intercept form submission
+    $("#rsvpForm").submit(function(event) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        $("#submitBtn").attr("disabled", true);
+
+        // Get form data
+        var formData = {
+            namaKK: $("#namaKK").val(),
+            jumlahPKBPKPPKLU: $("#jumlahPKBPKPPKLU").val(),
+            jumlahPA: $("#jumlahPA").val(),
+            jumlahPTGP: $("#jumlahPTGP").val()
+        };
+
+        // Send data to the sheetdb.io endpoint using AJAX
+        $.ajax({
+            url: "https://sheetdb.io/api/v1/k2vz6soqrw9pd",
+            type: "POST",
+            data: formData,
+            success: function(response) {
+                console.log("Data saved successfully:", response);
+                // Show success alert
+                alert("Data saved successfully!");
+            },
+            error: function(error) {
+                console.error("Error saving data:", error);
+                // You can handle errors here
+            }
+        });
+    });
+});
+</script>
+
 
     <script>
         simplyCountdown('.simply-countdown', {
@@ -414,6 +472,8 @@
                 snowflake.style.animationDuration = `${animationDuration}s`;
 
                 container.appendChild(snowflake);
+
+                
             }
         }
 
