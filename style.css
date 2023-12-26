@@ -8,7 +8,7 @@
 body {
   font-size: 1.2rem;
   font-family: 'Work Sans', sans-serif;
-  min-height: 4000px;
+  /* min-height: 4000px; */
 }
 
 .hero::before {
