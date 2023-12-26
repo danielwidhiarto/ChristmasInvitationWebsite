@@ -1,0 +1,45 @@
+.simply-countdown {
+  overflow: hidden;
+  display: table;
+  margin: auto;
+}
+
+.simply-countdown > .simply-section {
+  width: 100px; /* Set the desired width */
+  height: 100px; /* Set the same height as the width */
+  padding: 10px 15px;
+  margin: 10px;
+  background: var(--pink);
+  border: 2px solid #fff; /* Add a border for better contrast */
+  border-radius: 8px;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.simply-countdown > .simply-section:hover {
+  background-color: #fff; /* Change background color on hover */
+}
+
+.simply-countdown > .simply-section .simply-amount,
+.simply-countdown > .simply-section .simply-word {
+  display: block;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #fff; /* Set the color of the text inside the countdown */
+  transition: color 0.3s ease; /* Smooth color transition effect */
+}
+
+.simply-countdown > .simply-section:hover .simply-amount,
+.simply-countdown > .simply-section:hover .simply-word {
+  color: #333; /* Change text color on hover for better readability */
+}
+
+.simply-countdown > .simply-section .simply-word {
+  font-size: 1rem; /* Decrease the font size for the word */
+}
+
+/* Optional: Add a subtle shadow to create depth */
+.simply-countdown > .simply-section:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
