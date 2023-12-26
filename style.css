@@ -427,6 +427,25 @@ footer li {
   }
 }
 
+.snowflake {
+  position: absolute;
+  font-size: 20px;
+  color: #00aeff;
+  pointer-events: none;
+  user-select: none;
+  animation: snowflakeFall linear infinite;
+}
+
+@keyframes snowflakeFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+
 /* Media Query */
 /* Extra large */
 @media (max-width: 1200px) {

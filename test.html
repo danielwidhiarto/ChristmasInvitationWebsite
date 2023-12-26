@@ -65,43 +65,59 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center">
-                    <h2>Acara Pernikahan</h2>
-                    <h3>Diselenggarakan pada 20 November 2023 di Bandung, Jawa Barat.</h3>
-                    <p>Oleh karena itu, d engan segala hormat, kami bermaksud untuk mengundang Bapak/Ibu, Saudara/i,
-                        untuk hadir
-                        pada acara pernikahan kami. </p>
+                    <h2>Acara PraNatal</h2>
                 </div>
-            </div>
 
-            <div class="row couple">
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-8 text-end">
-                            <h3>Sandhika Galih</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque praesentium aut ipsa
-                                perferendis,
-                                incidunt soluta?</p>
-                            <p>Putra dari Bpk. Lorem <br> dan <br> Ibu Ipsum</p>
+                <div class="row justify-content-center">
+                    <!-- Bootstrap Card 1 -->
+                    <div class="card" style="width: 18rem; margin: 20px;">
+                        <img src="./assets/pranatal1.JPG" class="card-img-top" alt="PraNatal Image 1">
+                        <div class="card-body">
+                            <p class="card-text">Description for the first PraNatal event. Some quick example text to
+                                build on the card title and make up the bulk of the card's content.</p>
                         </div>
-                        <div class="col-4">
-                            <img src="img/sandhika.png" alt="Sandhika Galih" class="img-responsive rounded-circle">
+                    </div>
+
+                    <!-- Bootstrap Card 2 -->
+                    <div class="card" style="width: 18rem; margin: 20px;">
+                        <img src="path/to/pranatal_image2.jpg" class="card-img-top" alt="PraNatal Image 2">
+                        <div class="card-body">
+                            <p class="card-text">Description for the second PraNatal event. Some quick example text to
+                                build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
                 </div>
 
-                <span class="heart"><i class="bi bi-heart-fill"></i></span>
+            </div>
 
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-4">
-                            <img src="img/nofa.png" alt="Nofariza" class="img-responsive rounded-circle">
+
+            <!-- Existing content for Acara Natal -->
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h2>Acara Natal</h2>
+                    <h3>Acara natal akan diselenggarakan pada 2 tahap yaitu acara pranatal, dan puncak natal yang
+                        diselenggarakan pada 20 Januari 2024 di GSG Menara Kasih.</h3>
+                    <p>Oleh karena itu, dengan sukacita kami mengundang Bapak/Ibu, Saudara/i, untuk turut serta dalam
+                        acara Natal kami.</p>
+
+                    <p>Untuk acara pranatal kami sudah melakukan beberapa pemberian tali kasih seperti berikut: </p>
+                </div>
+                <div class="row justify-content-center">
+                    <!-- Bootstrap Card 1 -->
+                    <div class="card" style="width: 18rem; margin: 20px;">
+                        <img src="./img/pranatal1.JPG" class="card-img-top" alt="PraNatal Image 1">
+                        <div class="card-body">
+                            <p class="card-text">Description for the first PraNatal event. Some quick example text to
+                                build on the card title and make up the bulk of the card's content.</p>
                         </div>
-                        <div class="col-8">
-                            <h3>Nofariza</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque praesentium aut ipsa
-                                perferendis,
-                                incidunt soluta?</p>
-                            <p>Putra dari Bpk. Ipsum <br> dan <br> Ibu Lorem</p>
+                    </div>
+
+                    <!-- Bootstrap Card 2 -->
+                    <div class="card" style="width: 18rem; margin: 20px;">
+                        <img src="path/to/pranatal_image2.jpg" class="card-img-top" alt="PraNatal Image 2">
+                        <div class="card-body">
+                            <p class="card-text">Description for the second PraNatal event. Some quick example text to
+                                build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
                 </div>
@@ -123,7 +139,7 @@
                 <div class="col-md-8 col-10 text-center">
                     <!-- Video Player -->
                     <video id="myVideo" controls width="100%">
-                        <source src="your-video-file.mp4" type="video/mp4">
+                        <source src="./assets/video.mp4" type="video/mp4">
                         <!-- Add additional video sources for cross-browser compatibility -->
                         Your browser does not support the video tag.
                     </video>
@@ -377,6 +393,48 @@
 
         document.querySelector('#nama').value = nama;
     </script>
+
+    <!-- Your existing script... -->
+
+<!-- Your existing script... -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Your existing simplyCountdown initialization...
+  
+      // Create snowflakes
+      createSnowflakes();
+    });
+  
+    function createSnowflakes() {
+      const numSnowflakes = 50; // Adjust the number of snowflakes
+      const container = document.body; // Use the body element as the container
+  
+      for (let i = 0; i < numSnowflakes; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.innerHTML = '❄'; // You can customize the snowflake character
+  
+        const size = Math.random() * 20 + 10;
+        snowflake.style.fontSize = `${size}px`;
+  
+        const positionX = Math.random() * window.innerWidth;
+        const positionY = Math.random() * window.innerHeight;
+        const animationDuration = Math.random() * 10 + 5;
+  
+        snowflake.style.left = `${positionX}px`;
+        snowflake.style.top = `${positionY}px`;
+        snowflake.style.animationDuration = `${animationDuration}s`;
+  
+        container.appendChild(snowflake);
+      }
+    }
+  
+    // Your existing code...
+  </script>
+  
+
+
 </body>
 
 </html>
