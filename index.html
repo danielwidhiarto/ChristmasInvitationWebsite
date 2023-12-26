@@ -171,13 +171,11 @@
                 </div>
 
             </div>
-
-
             <!-- Existing content for Acara Natal -->
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center">
                     <h2>Acara Natal</h2>
-                    <h3>Acara puncak perayaan natal akan diselenggarakan pada: </h3>
+                    <h3>Acara puncak Perayaan Natal akan diselenggarakan pada: </h3>
                     <h3>Tanggal: 20 Januari 2024, Pukul: 17:00 - Selesai </h3>
                     <h3>di Gedung Serbaguna GPIB Menara Kasih.</h3>
                 </div>
@@ -216,8 +214,8 @@
                 <div class="col-md-8 col-10 text-center">
                     <h2>Konfirmasi Kehadiran</h2>
                     <p>Isi form di bawah ini untuk melakukan konfirmasi kehadiran.</p>
-                    <a href="https://forms.gle/K6h7yZ54VACBTvnn9" target="_blank"
-                        class="btn btn-light btn-sm my-3">Form Kehadiran Natal</a>
+                    <a href="https://forms.gle/K6h7yZ54VACBTvnn9" target="_blank" class="btn btn-light btn-sm my-3">Form
+                        Kehadiran Natal</a>
                 </div>
             </div>
         </div>
@@ -243,9 +241,15 @@
         </div>
     </footer>
 
-    <!-- <div id="audio-container">
-        <source src="audio/save-and-sound.mp3" type="audio/mp3">
-    </div> -->
+    <div id="audio-container">
+        <audio id="song" autoplay loop>
+          <source src="audio/backgroundsong.mp3" type="audio/mp3">
+        </audio>
+    
+        <div class="audio-icon-wrapper" style="display: none;">
+          <i class="bi bi-disc"></i>
+        </div>
+      </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -299,7 +303,7 @@
         const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
         const audioIcon = document.querySelector('.audio-icon-wrapper i');
         const song = document.querySelector('#song');
-        let isPlaying = false;
+        let isPlaying = true;
 
         function disableScroll() {
             scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -319,8 +323,33 @@
             playAudio();
         }
 
+        function playAudio() {
+            song.volume = 0.1;
+            audioIconWrapper.style.display = 'flex';
+            song.play();
+            isPlaying = true;
+        }
+
+        audioIconWrapper.onclick = function () {
+            if (isPlaying) {
+                song.pause();
+                audioIcon.classList.remove('bi-disc');
+                audioIcon.classList.add('bi-pause-circle');
+            } else {
+                song.play();
+                audioIcon.classList.add('bi-disc');
+                audioIcon.classList.remove('bi-pause-circle');
+            }
+
+            isPlaying = !isPlaying;
+        }
+
+        // if (!localStorage.getItem('opened')) {
+        //   disableScroll();
+        // }
         disableScroll();
     </script>
+
     <script>
         window.addEventListener("load", function () {
             const form = document.getElementById('my-form');
