@@ -197,6 +197,7 @@ body {
   /* Card content font color is black */
   border: 1px solid #999;
   margin: 20px;
+  width: 100%; /* Default width for larger screens */
 }
 
 #pranatal .card-header {
@@ -539,6 +540,11 @@ footer li {
     font-size: 65%;
   }
 
+  #pranatal .card {
+    width: 80%; /* Adjust the width for tablets */
+    margin: auto; /* Center the card */
+  }
+
   .simply-countdown > .simply-section {
     width: 80px; /* Adjust the width for tablets */
     height: 80px; /* Adjust the height accordingly */
@@ -571,6 +577,11 @@ footer li {
   html {
     font-size: 60%;
   }
+
+  #pranatal .card {
+    width: 90%; /* Adjust the width for mobile phones */
+    margin: auto; /* Center the card */
+  } 
 
   .simply-countdown > .simply-section {
     width: 60px; /* Adjust the width for mobile phones */
