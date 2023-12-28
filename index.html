@@ -302,6 +302,26 @@
         </div>
       </div>
 
+      <!-- Modal HTML -->
+<div id="customAlertModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customAlertModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="customAlertModalLabel">Alert</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="customAlertMessage">
+            <!-- Custom alert message will be displayed here -->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+        </div>
+    </div>
+</div>
+</div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
@@ -336,7 +356,7 @@ $(document).ready(function() {
             success: function(response) {
                 console.log("Data saved successfully:", response);
                 // Show success alert
-                alert("Data saved successfully!");
+                showCustomAlert("Data saved successfully!");
             },
             error: function(error) {
                 console.error("Error saving data:", error);
@@ -344,6 +364,15 @@ $(document).ready(function() {
             }
         });
     });
+
+        // Function to show custom alert
+        function showCustomAlert(message) {
+        // Set the custom alert message
+        $("#customAlertMessage").text(message);
+
+        // Show the custom alert modal
+        $("#customAlertModal").modal("show");
+    }
 });
 </script>
 
