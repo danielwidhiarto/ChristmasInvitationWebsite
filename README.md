@@ -1,6 +1,6 @@
 # Christmas Invitation Website
 
-Welcome to the Christmas Invitation Website, a festive and interactive platform for sharing the joy of the season. This HTML-based site features a countdown to the main event, details of pre-events, a video invitation and a convenient registration form.
+Welcome to the Christmas Invitation Website, a festive and interactive platform for sharing the joy of the season. This HTML-based site features a countdown to the main event, details of pre-events, a video invitation, and a convenient registration form.
 
 ## Features
 
@@ -10,7 +10,7 @@ Welcome to the Christmas Invitation Website, a festive and interactive platform 
 
 - **Pre-Event Activities**: Find out about pre-event activities leading up to the main event.
 
-- **Video Invitation**: Experience a warm and personalised invitation through our video message.
+- **Video Invitation**: Experience a warm and personalized invitation through our video message.
 
 - **Registration Form**: Register for the Christmas Celebration by completing the simple registration form.
 
