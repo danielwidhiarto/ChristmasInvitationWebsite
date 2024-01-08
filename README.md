@@ -1,3 +1,7 @@
+# Rating
+
+[![CodeFactor](https://www.codefactor.io/repository/github/danielwidhiarto/christmasinvitationwebsite/badge)](https://www.codefactor.io/repository/github/danielwidhiarto/christmasinvitationwebsite)
+
 # Christmas Invitation Website
 
 Welcome to the Christmas Invitation Website, a festive and interactive platform for sharing the joy of the season. This HTML-based site features a countdown to the main event, details of pre-events, a video invitation, and a convenient registration form.
