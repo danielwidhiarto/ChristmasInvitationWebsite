@@ -342,39 +342,45 @@
             $("#rsvpForm").submit(function (event) {
                 // Prevent the default form submission
                 event.preventDefault();
-
-                $("#submitBtn").attr("disabled", true);
-
-                // Get form data
-                var formData = {
-                    namaKK: $("#namaKK").val(),
-                    jumlahPKBPKPPKLU: $("#jumlahPKBPKPPKLU").val(),
-                    jumlahPA: $("#jumlahPA").val(),
-                    jumlahPTGP: $("#jumlahPTGP").val()
-                };
-
-                // Send data to the sheetdb.io endpoint using AJAX
-                $.ajax({
-                    url: "https://sheetdb.io/api/v1/k2vz6soqrw9pd",
-                    type: "POST",
-                    data: formData,
-                    success: function (response) {
-                        console.log("Data saved successfully:", response);
-                        // Show success alert
-                        showCustomAlert("Data saved successfully!");
-                    },
-                    error: function (error) {
-                        console.error("Error saving data:", error);
-                        // You can handle errors here
-                    }
-                });
+    
+                // Display a confirmation dialog
+                var isConfirmed = window.confirm("Are you sure you want to submit your data?\n\nNama KK: " + $("#namaKK").val() + "\nJumlah PKB/PKP/PKLU: " + $("#jumlahPKBPKPPKLU").val() + "\nJumlah PA: " + $("#jumlahPA").val() + "\nJumlah PT/GP: " + $("#jumlahPTGP").val());
+    
+                // Check if the user confirmed
+                if (isConfirmed) {
+                    $("#submitBtn").attr("disabled", true);
+    
+                    // Get form data
+                    var formData = {
+                        namaKK: $("#namaKK").val(),
+                        jumlahPKBPKPPKLU: $("#jumlahPKBPKPPKLU").val(),
+                        jumlahPA: $("#jumlahPA").val(),
+                        jumlahPTGP: $("#jumlahPTGP").val()
+                    };
+    
+                    // Send data to the sheetdb.io endpoint using AJAX
+                    $.ajax({
+                        url: "https://sheetdb.io/api/v1/k2vz6soqrw9pd",
+                        type: "POST",
+                        data: formData,
+                        success: function (response) {
+                            console.log("Data saved successfully:", response);
+                            // Show success alert
+                            showCustomAlert("Data saved successfully!");
+                        },
+                        error: function (error) {
+                            console.error("Error saving data:", error);
+                            // You can handle errors here
+                        }
+                    });
+                }
             });
-
+    
             // Function to show custom alert
             function showCustomAlert(message) {
                 // Set the custom alert message
                 $("#customAlertMessage").text(message);
-
+    
                 // Show the custom alert modal
                 $("#customAlertModal").modal("show");
             }
